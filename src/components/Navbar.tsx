@@ -3,7 +3,10 @@ import { NavLink, Outlet } from "react-router-dom";
 import styled from "styled-components";
 
 const Container = styled.div`
-  height: 60px;
+  position: sticky;
+  top: 0;
+  height: 70px;
+  padding: 12px 0;
   background-color: #fff;
   box-shadow: 1px 1px 5px #c3c3c3;
   display: flex;
@@ -14,7 +17,7 @@ const Container = styled.div`
 const Nav = styled.div`
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 20px;
   margin-left: 15px;
 `;
 const Button = styled.button`
@@ -44,14 +47,30 @@ const Link = styled(NavLink)`
   }
 `;
 
+const Count = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: red;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translate(25%, 25%);
+  color: #fff;
+  font-size: 18px;
+`;
+
 const Navbar = () => {
   return (
     <React.Fragment>
       <Container>
         <Nav>
           <Link to={"/"}>Home</Link>
-          <Link to={"/about"}>About</Link>
           <Link to={"/store"}>Store</Link>
+          <Link to={"/about"}>About</Link>
         </Nav>
         <Button style={{ width: "3rem", height: "3rem", position: "relative" }}>
           <svg
@@ -61,7 +80,7 @@ const Navbar = () => {
           >
             <path d="M96 0C107.5 0 117.4 8.19 119.6 19.51L121.1 32H541.8C562.1 32 578.3 52.25 572.6 72.66L518.6 264.7C514.7 278.5 502.1 288 487.8 288H170.7L179.9 336H488C501.3 336 512 346.7 512 360C512 373.3 501.3 384 488 384H159.1C148.5 384 138.6 375.8 136.4 364.5L76.14 48H24C10.75 48 0 37.25 0 24C0 10.75 10.75 0 24 0H96zM128 464C128 437.5 149.5 416 176 416C202.5 416 224 437.5 224 464C224 490.5 202.5 512 176 512C149.5 512 128 490.5 128 464zM512 464C512 490.5 490.5 512 464 512C437.5 512 416 490.5 416 464C416 437.5 437.5 416 464 416C490.5 416 512 437.5 512 464z" />
           </svg>
-          <div>3</div>
+          <Count>3</Count>
         </Button>
       </Container>
       <Outlet />
