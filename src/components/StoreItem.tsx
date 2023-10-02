@@ -90,7 +90,7 @@ type StoreItemProps = {
   imgUrl: string;
 };
 
-export default function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
+function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
   const {
     getItemQuantity,
     increaseCartQuantity,
@@ -98,6 +98,7 @@ export default function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
     removeFromCart,
   } = useShoppingCart();
   const quantity = getItemQuantity(id);
+
   return (
     <React.Fragment>
       <Card>
@@ -124,3 +125,5 @@ export default function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
     </React.Fragment>
   );
 }
+
+export default StoreItem;
