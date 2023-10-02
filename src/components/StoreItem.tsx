@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { formatCurrency } from "../utils/formatCurrency";
+import { useShoppingCart } from "../context/ShoppingCardContext";
 
 const Card = styled.div`
   display: flex;
@@ -89,8 +90,14 @@ type StoreItemProps = {
   imgUrl: string;
 };
 
-export default function StoreItem({ name, price, imgUrl }: StoreItemProps) {
-  const quantity = 1;
+export default function StoreItem({ id, name, price, imgUrl }: StoreItemProps) {
+  const {
+    getItemQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeFromCart,
+  } = useShoppingCart();
+  const quantity = getItemQuantity(id);
   return (
     <React.Fragment>
       <Card>
@@ -99,18 +106,20 @@ export default function StoreItem({ name, price, imgUrl }: StoreItemProps) {
           <Name>{name}</Name>
           <Price>{formatCurrency(price)}</Price>
         </Center>
-        {!quantity ? (
+        {quantity === 0 ? (
           <Math>
-            <Btn>-</Btn>
+            <Btn onClick={() => decreaseCartQuantity(id)}>-</Btn>
             <Desc>
-              <Span>7</Span> in cart
+              <Span>{quantity}</Span> in cart
             </Desc>
-            <Btn>+</Btn>
+            <Btn onClick={() => increaseCartQuantity(id)}>+</Btn>
           </Math>
         ) : (
-          <Button add>+Add To Card</Button>
+          <Button onClick={() => increaseCartQuantity(id)} add>
+            +Add To Card
+          </Button>
         )}
-        <Button>Remove</Button>
+        <Button onClick={() => removeFromCart(id)}>Remove</Button>
       </Card>
     </React.Fragment>
   );
