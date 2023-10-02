@@ -8,7 +8,7 @@ const Container = styled.div`
   background-color: transparent;
   border-radius: 5px;
   padding: 40px;
-  width: 80%;
+  width: 85%;
 `;
 
 const Title = styled.div`
