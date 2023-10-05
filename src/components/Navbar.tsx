@@ -72,6 +72,7 @@ const Navbar = () => {
           <Link to={"/store"}>Store</Link>
           <Link to={"/about"}>About</Link>
         </Nav>
+
         <Button style={{ width: "3rem", height: "3rem", position: "relative" }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
