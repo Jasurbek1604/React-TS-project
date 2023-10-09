@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { formatCurrency } from "../utils/formatCurrency";
 
 const Card = styled.div`
   display: flex;
@@ -96,7 +95,7 @@ function StoreItem({ name, price, imgUrl }: StoreItemProps) {
         <Img src={imgUrl} />
         <Center>
           <Name>{name}</Name>
-          <Price>{formatCurrency(price)}</Price>
+          <Price>${price}</Price>
         </Center>
         <Math>
           <Btn>-</Btn>

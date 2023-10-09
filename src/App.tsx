@@ -8,8 +8,6 @@ import styled from "styled-components";
 
 const Container = styled.div``;
 
-const a = () => {};
-
 const App: React.FC = () => {
   return (
     <React.Fragment>
