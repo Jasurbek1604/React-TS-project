@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   position: sticky;
+
   top: 0;
   height: 70px;
   padding: 12px 0;
