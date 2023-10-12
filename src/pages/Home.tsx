@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <h1>
+    <h1 style={{ margin: "20px" }}>
       Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officia
       accusamus, nostrum iusto voluptatum obcaecati quibusdam dicta voluptas
       dolor necessitatibus cumque asperiores cum recusandae vel doloribus

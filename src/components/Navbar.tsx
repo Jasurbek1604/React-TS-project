@@ -4,7 +4,6 @@ import styled from "styled-components";
 
 const Container = styled.div`
   position: sticky;
-
   top: 0;
   height: 70px;
   padding: 12px 0;
@@ -74,7 +73,7 @@ const Navbar = () => {
           <Link to={"/about"}>About</Link>
         </Nav>
 
-        <Button style={{ width: "3rem", height: "3rem", position: "relative" }}>
+        <Button style={{ width: "3rem", height: "3rem" }}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 576 512"
