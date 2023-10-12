@@ -14,7 +14,7 @@ export function useShoppingCart() {
 }
 
 type ShppingCartProviderProps = {
-  childern: ReactNode;
+  children: ReactNode;
 };
 
 type CartItem = {
@@ -22,7 +22,7 @@ type CartItem = {
   quantity: number;
 };
 
-export function ShoppingCartProvider({ childern }: ShppingCartProviderProps) {
+export function ShoppingCartProvider({ children }: ShppingCartProviderProps) {
   const [cartItem, setCartItems] = useState<CartItem[]>([]);
 
   const getQuantity = (id: number) => {
@@ -74,7 +74,7 @@ export function ShoppingCartProvider({ childern }: ShppingCartProviderProps) {
         removeFromCart,
       }}
     >
-      {childern}
+      {children}
     </ShoppingCartContext.Provider>
   );
 }
