@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import formatCurrency from "../utilities/formatCurrency";
 
 const Card = styled.div`
   display: flex;
@@ -89,23 +90,32 @@ type StoreItemProps = {
 };
 
 function StoreItem({ name, price, imgUrl }: StoreItemProps) {
+  const [quantity, setQuantity] = useState(0);
+  const [count, setCount] = useState(0);
   return (
     <React.Fragment>
       <Card>
         <Img src={imgUrl} />
         <Center>
           <Name>{name}</Name>
-          <Price>${price}</Price>
+          <Price>{formatCurrency(price)}</Price>
         </Center>
-        <Math>
-          <Btn>-</Btn>
-          <Desc>
-            <Span>10</Span> in cart
-          </Desc>
-          <Btn>+</Btn>
-        </Math>
-        <Button add>+Add To Card</Button>
-        <Button>Remove</Button>
+        {quantity ? (
+          <>
+            <Math>
+              <Btn onClick={() => setCount(count - 1)}>-</Btn>
+              <Desc>
+                <Span>{count}</Span> in cart
+              </Desc>
+              <Btn onClick={() => setCount(count + 1)}>+</Btn>
+            </Math>
+            <Button onClick={() => setQuantity(0)}>Remove</Button>
+          </>
+        ) : (
+          <Button add onClick={() => setQuantity(1)}>
+            +Add To Card
+          </Button>
+        )}
       </Card>
     </React.Fragment>
   );

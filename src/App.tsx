@@ -5,12 +5,13 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Store from "./pages/Store";
 import styled from "styled-components";
+import { ShoppingCartProvider } from "./context/ShoppingCartContext";
 
 const Container = styled.div``;
 
 const App: React.FC = () => {
   return (
-    <React.Fragment>
+    <ShoppingCartProvider>
       <Container>
         <Routes>
           <Route element={<Navbar />}>
@@ -20,7 +21,7 @@ const App: React.FC = () => {
           </Route>
         </Routes>
       </Container>
-    </React.Fragment>
+    </ShoppingCartProvider>
   );
 };
 
